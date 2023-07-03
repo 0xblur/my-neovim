@@ -10,5 +10,7 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+-- Load plugins
+require "plugins"
 -- Load catppuccin as start-up theme
 vim.cmd.colorscheme "catppuccin"
