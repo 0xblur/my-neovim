@@ -9,3 +9,6 @@ vim.api.nvim_create_autocmd("User", {
     require("config.keymaps")
   end,
 })
+
+-- Load catppuccin as start-up theme
+vim.cmd.colorscheme "catppuccin"

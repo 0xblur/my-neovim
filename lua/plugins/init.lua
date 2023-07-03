@@ -7,14 +7,4 @@ return {
     event = "VeryLazy",
     config = true,
   },
-  {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    config = {
-      integrations = { diffview = true },
-    },
-    keys = {
-      { "<leader>gs", "<cmd>Neogit kind=floating<cr>", desc = "Status" },
-    },
-  },
 }

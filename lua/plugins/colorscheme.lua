@@ -17,13 +17,17 @@ return {
     config = function()
       local catppuccin = require "catppuccin"
       catppuccin.setup {
-        flavour = "latte",
+        flavour = "mocha",
         background = {
           light = "latte",
           dark = "mocha",
         },
-        transparent_background = false,
         show_end_of_buffer = true,
+        no_bold = true,
+        styles = {
+        	conditionals = { "bold" },
+        	types = { "bold" }
+        }
       }
     end,
 
@@ -43,14 +47,5 @@ return {
     end,
 
   },
-
-  -- Make LazyVim load "catppuccin" as its primary colorscheme.
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin"
-    },
-  },
-
 
 }
