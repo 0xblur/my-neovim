@@ -1,0 +1,10 @@
+{
+    "workspace.library": [
+        "/home/hadezb/.config/nvim",
+        "/home/hadezb/.local/share/nvim/lazy/lazy.nvim",
+        "/usr/local/share/nvim/runtime",
+        "/usr/local/lib/nvim",
+        "/home/hadezb/.local/state/nvim/lazy/readme",
+        "${3rd}/luassert/library"
+    ]
+}
