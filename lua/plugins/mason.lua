@@ -1,20 +1,25 @@
 return {
-	require("mason").setup(),
-	require("mason-lspconfig").setup{
-		ensure_installed = {},
-		automatic_installation = true,
-	},
-
-	require("lspconfig").lua_ls.setup{
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = {"vim"},
-					},
-					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true),
-					},
-				},
-			}
-		}
+  {
+    "williamboman/mason.nvim",
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonLog",
+      "MasonUpdate",
+      "MasonUpdateAll",
+    },
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_uninstalled = "✗",
+          package_pending = "⟳",
+        },
+      },
+    },
+    build = ":MasonUpdate",
+    config = require "plugins.configs.mason",
+  },
 }
