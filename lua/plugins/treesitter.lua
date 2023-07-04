@@ -4,20 +4,15 @@ return {
     "JoosepAlviste/nvim-ts-context-commentstring",
     "nvim-treesitter/nvim-treesitter-textobjects",
     "windwp/nvim-ts-autotag",
+    init = function()
+        -- disable rtp plugin, as we only need its queries for mini.ai
+        -- In case other textobject modules are enabled, we will load them
+        -- once nvim-treesitter is loaded
+        require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
+        load_textobjects = true
+    end,
   },
   cmd = {
-    "TSBufDisable",
-    "TSBufEnable",
-    "TSBufToggle",
-    "TSDisable",
-    "TSEnable",
-    "TSToggle",
-    "TSInstall",
-    "TSInstallInfo",
-    "TSInstallSync",
-    "TSModuleInfo",
-    "TSUninstall",
-    "TSUpdate",
     "TSUpdateSync",
   },
   build = ":TSUpdate",
