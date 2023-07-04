@@ -13,7 +13,8 @@ return {
   -- Install and configure "catppuccin" theme
   {
     "catppuccin/nvim",
-    priority = 1000,
+    lazy = true,
+    name = "catppuccin",
     config = function()
       local catppuccin = require "catppuccin"
       catppuccin.setup {
@@ -27,7 +28,33 @@ return {
         styles = {
         	conditionals = { "bold" },
         	types = { "bold" }
-        }
+        },
+	integrations = {
+	  cmp = true,
+	  gitsigns = true,
+	  illuminate = true,
+	  indent_blankline = {enabled = true },
+	  lsp_trouble = true,
+	  mason = true,
+	  mini = true,
+	  native_lsp = {
+	    enabled = true,
+	    underlines = {
+	      errors = { "undercurl" },
+	      hints = { "undercurl" },
+	      warnings = { "undercurl" },
+	      information = { "undercurl" }
+	    }
+	  },
+	  navic = { enabled = true },
+	  noice = true,
+	  notify = true,
+	  neotree = true,
+	  semantic_tokens = true,
+	  telescope = true,
+	  treesitter = true,
+	  which_key = true
+	}
       }
     end,
 
