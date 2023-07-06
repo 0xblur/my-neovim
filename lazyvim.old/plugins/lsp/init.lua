@@ -51,6 +51,7 @@ return {
 			{ "folke/neodev.nvim", opts = {} },
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
+			-- This does not produce errors
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				cond = function()
@@ -58,6 +59,7 @@ return {
 				end,
 			},
 		},
+		---@class PluginLspOpts
 		opts = {
 			diagnostics = {
 				underline = true,
@@ -74,10 +76,12 @@ return {
 			capabilities = {},
 			autoformat = true,
 			format_notify = false,
+			
 			format = {
 				formatting_options = nil,
 				timeout_ms = nil,
 			},
+			---@type lspconfig.options
 			servers = {
 				jsonls = {},
 				lua_ls = {
@@ -108,6 +112,7 @@ return {
 				-- ["*"] = function(server, opts) end,
 			},
 		},
+		---@param opts PluginLspOpts
 		config = function(_, opts)
 			local Util = require("lazyvim.util")
 
