@@ -44,5 +44,5 @@ return {
       },
     }
   end,
-  config = require "plugins.configs.telescope",
+  config = require "base.plugins.configs.telescope",
 }

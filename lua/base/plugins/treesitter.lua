@@ -30,5 +30,5 @@ return {
       indent = { enable = true },
       }
   end,
-  config = require "plugins.configs.nvim-treesitter",
+  config = require "base.plugins.configs.nvim-treesitter",
 }

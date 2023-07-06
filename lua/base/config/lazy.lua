@@ -11,7 +11,8 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 -- Configure lazy.nvim
 require("lazy").setup({
   spec = {
-  	{ import = "plugins" },
+  	{ import = "base.plugins" },
+    { import = "base.plugins.lsp" }
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
