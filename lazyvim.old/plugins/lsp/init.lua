@@ -76,7 +76,7 @@ return {
 			capabilities = {},
 			autoformat = true,
 			format_notify = false,
-			
+
 			format = {
 				formatting_options = nil,
 				timeout_ms = nil,
@@ -226,10 +226,9 @@ return {
 			return {
 				root_dir = require("null-ls.utils").root_pattern(".null-ls-root", ".neoconf.json", "Makefile", ".git"),
 				sources = {
-					nls.builtins.formatting.fish_indent,
-					nls.builtins.diagnostics.fish,
 					nls.builtins.formatting.stylua,
 					nls.builtins.formatting.shfmt,
+					nls.builtins.diagnostics.mypy,
 				},
 			}
 		end,

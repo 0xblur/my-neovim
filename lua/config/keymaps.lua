@@ -21,6 +21,8 @@ end
 local keymap = vim.keymap.set
 local delkeymap = vim.keymap.del
 
+-- Deleete "J" which combines lines
+-- map({ "n", "v" }, "J", ":echo 'You pressed J'")
 -- Remap for dealing with word wrap
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })
 keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })

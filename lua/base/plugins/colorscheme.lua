@@ -3,8 +3,7 @@ return {
 	-- Install and configure "gruvbox" theme
 	{
 		"ellisonleao/gruvbox.nvim",
-		lazy = false,
-		priority = 1000,
+		lazy = true,
 		config = function()
 			require("gruvbox").setup()
 		end,
@@ -13,7 +12,8 @@ return {
 	-- Install and configure "catppuccin" theme
 	{
 		"catppuccin/nvim",
-		lazy = true,
+		lazy = false,
+		priority = 1000,
 		name = "catppuccin",
 		config = function()
 			local catppuccin = require("catppuccin")
@@ -56,6 +56,7 @@ return {
 					which_key = true,
 				},
 			})
+			vim.cmd([[colorscheme tokyonight]])
 		end,
 	},
 
