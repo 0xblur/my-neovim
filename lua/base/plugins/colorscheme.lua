@@ -18,7 +18,7 @@ return {
 		config = function()
 			local catppuccin = require("catppuccin")
 			catppuccin.setup({
-				flavour = "latte",
+				flavour = "mocha",
 				background = {
 					light = "latte",
 					dark = "mocha",

@@ -23,7 +23,7 @@ return {
 								ruff = {
 									enabled = true,
 									extendSelect = { "I" },
-									lineLength = 80,
+									lineLength = 88,
 								},
 								mccabe = {
 									enabled = false,
@@ -57,7 +57,18 @@ return {
 		ft = { "py" },
 		opts = function(_, opts)
 			local nls = require("null-ls")
-			-- table.insert(opts.sources, nls.builtins.diagnostics.mypy)
+			local docformatter = {
+				name = "docformatter",
+				filetypes = { "python" },
+				method = nls.methods.FORMATTING,
+				generator = nls.formatter({
+					command = "docformatter",
+					args = { "--black", "-" },
+					to_stdin = true,
+				}),
+				id = 1,
+			}
+			table.insert(opts.sources, docformatter)
 		end,
 	},
 }
