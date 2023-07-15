@@ -6,36 +6,10 @@ return {
 		opts = {
 			---@type lspconfig.options
 			servers = {
-				pylsp = {
+				ruff_lsp = {},
+				jedi_language_server = {
 					settings = {
-						pylsp = {
-							plugins = {
-								autopep8 = {
-									enabled = false,
-								},
-								isort = {
-									enabled = true,
-								},
-								black = {
-									enabled = true,
-									preview = true,
-								},
-								ruff = {
-									enabled = true,
-									extendSelect = { "I" },
-									lineLength = 88,
-								},
-								mccabe = {
-									enabled = false,
-								},
-								pyflakes = {
-									enabled = false,
-								},
-								pycodestyle = {
-									enabled = false,
-								},
-							},
-						},
+						auto_import_modules = { "numpy", "pandas", "matplotlib.pyplot" },
 					},
 				},
 			},
@@ -48,10 +22,12 @@ return {
 		ft = { "py" },
 		opts = function(_, opts)
 			table.insert(opts.ensure_installed, "docformatter")
-			-- table.insert(opts.ensure_installed, "mypy"mypy)
-			-- table.insert(opts.ensure_installed, "ruff")
+			table.insert(opts.ensure_installed, "mypy")
+			table.insert(opts.ensure_installed, "ruff")
+			table.insert(opts.ensure_installed, "black")
 		end,
 	},
+	-- Add custom docformatter plugin to null-ls
 	{
 		"jose-elias-alvarez/null-ls.nvim",
 		ft = { "py" },
@@ -69,6 +45,8 @@ return {
 				id = 1,
 			}
 			table.insert(opts.sources, docformatter)
+			table.insert(opts.sources, nls.builtins.formatting.black)
+			table.insert(opts.sources, nls.builtins.diagnostics.mypy)
 		end,
 	},
 }
